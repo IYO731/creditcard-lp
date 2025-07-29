@@ -97,16 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// フォーム送信のシミュレーション（実際の実装時は適切なフォーム処理に置き換えてください）
+// LINEリンクの動作確認（デバッグ用）
 document.addEventListener('DOMContentLoaded', function() {
     const ctaButtons = document.querySelectorAll('.btn-primary');
     
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // 実際の実装では、ここでフォーム送信や外部リンクへの遷移を行います
-            alert('申込みフォームに遷移します。\n実際の実装では、適切なフォームページや外部サービスへのリンクを設定してください。');
+            // 新しいタブでLINEリンクが開くことを確認
+            console.log('LINEリンクがクリックされました:', this.href);
         });
     });
 }); 
