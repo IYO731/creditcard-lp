@@ -107,4 +107,33 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('LINEリンクがクリックされました:', this.href);
         });
     });
+});
+
+// 画像の読み込みエラー処理
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            // 画像が読み込めない場合の代替表示
+            this.style.display = 'none';
+            const placeholder = document.createElement('div');
+            placeholder.className = 'image-placeholder';
+            placeholder.innerHTML = '<span>📷</span>';
+            placeholder.style.cssText = `
+                width: 100%;
+                max-width: 400px;
+                height: 300px;
+                background: linear-gradient(135deg, #d4e3f0, #e8f4f8);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 4rem;
+                box-shadow: 0 10px 30px rgba(139, 179, 201, 0.2);
+                margin: 0 auto;
+            `;
+            this.parentNode.appendChild(placeholder);
+        });
+    });
 }); 
